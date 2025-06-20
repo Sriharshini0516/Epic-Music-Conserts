@@ -1,0 +1,208 @@
+<!--DOCTYPE html>
+<html>
+<head>
+    <title>Music Concert - Venue</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 20px;
+}
+
+#venue-section {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+    </style>
+    <script>
+    function showVenue() {
+    document.getElementById("venue-name").innerText = "Venue: Grand Arena";
+    document.getElementById("venue-location").innerText = "Location: New York City";
+}
+
+    </script>
+</head>
+<body>
+    <h1>Welcome to the Music Concert</h1>
+    
+    <div id="venue-section">
+        <h2>Venue Information</h2>
+        <p id="venue-name">Venue: Not Available</p>
+        <p id="venue-location">Location: Not Available</p>
+        <button onclick="showVenue()">Show Venue Details</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html-->
+
+<!--DOCTYPE html>
+<html>
+<head>
+    <title>Music Concert - Venue</title>
+
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    color: red;
+}
+
+#venue-section {
+    background-color: #1a1a1a; /* dark gray/black */
+    border: 2px solid red;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: darkred;
+}
+</style>
+
+<script>
+    function showVenue() {
+    document.getElementById("venue-name").innerText = "Venue: Grand Arena";
+    document.getElementById("venue-location").innerText = "Location: New York City";
+}
+
+</script>
+</head>
+<body>
+    <h1>Welcome to the Music Concert</h1>
+    
+    <div id="venue-section">
+        <h2>Venue Information</h2>
+        <p id="venue-name">Venue: Not Available</p>
+        <p id="venue-location">Location: Not Available</p>
+        <button onclick="showVenue()">Show Venue Details</button>
+    </div>
+</body>
+</html-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music Concert - Venue</title>
+    <style>
+        /* Reset some basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: black;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    color: red;
+    font-size: 36px;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 5px #ff0000;
+}
+
+#venue-section {
+    background-color: #1a1a1a;
+    border: 2px solid red;
+    padding: 25px;
+    border-radius: 10px;
+    width: 300px;
+    margin: 0 auto;
+    box-shadow: 0 0 20px red;
+}
+
+h2 {
+    color: #ff4d4d;
+    margin-bottom: 20px;
+}
+
+.info {
+    color: #ccc;
+}
+
+button {
+    margin-top: 15px;
+    padding: 12px 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: darkred;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎵 Music Concert 2025 🎵</h1>
+
+        <div id="venue-section">
+            <h2>📍 Venue Information</h2>
+            <p id="venue-name">Venue: <span class="info">Not Available</span></p>
+            <p id="venue-location">Location: <span class="info">Not Available</span></p>
+            <button onclick="showVenue()">Show Venue Details</button>
+        </div>
+    </div>
+
+    <script>
+            function showVenue() {
+            document.getElementById("venue-name").innerHTML = "Venue: <span class='info'>Grand Arena</span>";
+            document.getElementById("venue-location").innerHTML = "Location: <span class='info'>New York City</span>";
+        }
+
+    </script>
+</body>
+</html>
+
+
+

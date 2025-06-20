@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #7f0303;
+      color: white;
+      text-align: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      
+    }
+
+    nav {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+      height: 30px;
+    
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ff4d4d;
+    }
+
+    .concert-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      width: 220px;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .card h2 {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    .card p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .date {
+      font-weight: bold;
+      color: #444;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e60000;
+    }
+  </style>
+
+  <script>
+    function bookTicket(showName) {
+      alert("You have booked a ticket for: " + showName);
+    }
+
+  function addToCart(showName, venue, date) {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.push({ showName, venue, date });
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert("Added to cart: " + showName);
+  } 
+  </script>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="concert artist.html">Artists</a></li>
+      <li><a href="concert venue.html">Venue</a></li>
+      <li><a href="concert add to cart .html">Add To Cart</a></li>
+    </ul>
+  </nav>
+  <div class="concert-container">
+    <div class="card">
+      <img src="Pics/OIP (1).jpg" alt="Taaruk Raina"  style="height: 55% ;">
+      <p class="date">Fri, 13 Jun</p>
+      <h2>Taaruk Raina Live</h2>
+      <p>Venue: Diablo, Hyderabad</p>
+      <a href="consert book ticket.html">
+      <button>Book Now</button>
+      </a>
+    </div>
+    <div class="card">
+      <img src="Pics/OIP (3).jpg" alt="Gigglefest">
+      <p class="date">Sat, 7 Jun onwards</p>
+      <h2>The Gigglefest </h2>
+      <p>Venue: HITEX Exhibition Center</p>
+     <a href="consert book ticket.html">
+      <button>Book Now</button>
+      </a>
+    </div>
+    <div class="card">
+      <img src="Pics/Shaya.jpg" alt="Lokoko Show"  style="height: 55%;">
+      <p class="date">Sun, 9 Jun</p>
+      <h2>Lokoko Music Show</h2>
+      <p>Venue: Local Metro, Hyderabad</p>
+       <a href="consert book ticket.html">
+      <button>Book Now</button>
+      </a>
+    </div>
+    <div class="card">
+      <img src="Pics/Jyonitha.jpg" alt="Thaikkudam Bridge" style="height: 55%;">
+      <p class="date">Thu, 20 Jun</p>
+      <h2>Thaikkudam Bridge</h2>
+      <p>Venue: ODEUM, Hyderabad</p>
+      <a href="consert book ticket.html">
+      <button>Book Now</button>
+      </a>
+    </div>
+    <div class="card">
+      <img src="Pics/OIP (4).jpg" alt="Taaruk Raina" style="height: 55%;">
+      <p class="date">Fri, 13 Jun</p>
+      <h2>Taaruk Raina Live</h2>
+      <p>Venue: Diablo, Hyderabad</p>
+      <a href="consert book ticket.html">
+      <button>Book Now</button>
+      </a>
+    </div>
+    <div class="card">
+      <img src="Pics/OIP (5).jpg" alt="Gigglefest" style="height: 53%;">
+      <p class="date">Sat, 7 Jun onwards</p>
+      <h2>The Gigglefest </h2>
+      <p>Venue: HITEX Exhibition Center</p>
+      <a href="consert book ticket.html">
+      <button>Book Now</button>
+      </a>
+    </div>
+    <div class="card">
+      <img src="Pics/OIP (6).jpg" alt="Lokoko Show" style="height: 53%;">
+      <p class="date">Sun, 9 Jun</p>
+      <h2>Lokoko Music Show</h2>
+      <p>Venue: Local Metro, Hyderabad</p>
+      <a href="consert book ticket.html">
+      <button>Book Now</button>
+      </a>
+    </div>
+    <div class="card">
+      <img src="Pics/OIP (7).jpg" alt="Thaikkudam Bridge" style="height: 53%;">
+      <p class="date">Thu, 20 Jun</p>
+      <h2>Thaikkudam Bridge</h2>
+      <p>Venue: ODEUM, Hyderabad</p>
+      <a href="consert book ticket.html">
+      <button>Book Now</button>
+      </a>
+    </div>
+    <div class="card">
+      <img src="Pics/OIP (8).jpg" alt="Taaruk Raina" style="height: 53%;">
+      <p class="date">Fri, 13 Jun</p>
+      <h2>Taaruk Raina Live</h2>
+      <p>Venue: Diablo, Hyderabad</p>
+      <a href="consert book ticket.html">
+      <button>Book Now</button>
+      </a>
+    </div>
+    <div class="card">
+      <img src="Pics/OIP (11).jpg" alt="Gigglefest" style="height: 53%;">
+      <p class="date">Sat, 7 Jun onwards</p>
+      <h2>The Gigglefest </h2>
+      <p>Venue: HITEX Exhibition Center</p>
+      <a href="consert book ticket.html">
+      <button>Book Now</button>
+      </a>
+    </div>
+    <div class="card">
+      <img src="Pics/sunidhi.jpg" alt="Lokoko Show" style="height: 53%;">
+      <p class="date">Sun, 9 Jun</p>
+      <h2>Lokoko Music Show</h2>
+      <p>Venue: Local Metro, Hyderabad</p>
+      <a href="consert book ticket.html">
+      <button>Book Now</button>
+      </a>
+    </div>
+    <div class="card">
+      <img src="Pics/ar.jpg" alt="Thaikkudam Bridge" style="height: 53%;">
+      <p class="date">Thu, 20 Jun</p>
+      <h2>Thaikkudam Bridge</h2>
+      <p>Venue: ODEUM, Hyderabad</p>
+      <a href="consert book ticket.html">
+      <button>Book Now</button>
+      </a>>
+    </div>
+    <div class="card">
+      <img src="Pics/DSP.jpg" alt="Lokoko Show" style="height: 53%;">
+      <p class="date">Sun, 9 Jun</p>
+      <h2>Lokoko Music Show</h2>
+      <p>Venue: Local Metro, Hyderabad</p>
+      <a href="consert book ticket.html">
+      <button>Book Now</button>
+      </a>
+    </div>
+    <div class="card">
+      <img src="Pics/revanth.jpg" alt="Thaikkudam Bridge" style="height: 53%;">
+      <p class="date">Thu, 20 Jun</p>
+      <h2>Thaikkudam Bridge</h2>
+      <p>Venue: ODEUM, Hyderabad</p>
+      <a href="consert book ticket.html">
+      <button>Book Now</button>
+      </a>
+    </div>
+    <div class="card">
+      <img src="Pics/andhea.jpg" alt="Thaikkudam Bridge" style="height: 53%;">
+      <p class="date">Thu, 20 Jun</p>
+      <h2>Thaikkudam Bridge</h2>
+      <p>Venue: ODEUM, Hyderabad</p>
+      <a href="consert book ticket.html"> 
+      <button>Book Now</button>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

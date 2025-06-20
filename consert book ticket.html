@@ -1,0 +1,181 @@
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concert Ticket Booking</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #9b1515;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+          background-image: url('a1.avif');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+  }
+  .booking-box {
+    background-color: rgb(19, 16, 16);
+    padding: 20px;
+    width: 320px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px gray;
+    text-align: center;
+  }
+  .booking-box input[type="text"],
+  .booking-box input[type="number"],
+  .booking-box input[type="tel"] {
+    width: 90%;
+    padding: 8px;
+    margin: 10px 0;
+    font-size: 1rem;
+    background-color: rgb(71, 68, 68);
+    color: white;
+    border: none;
+    border-radius: 4px;
+  }
+  .booking-box input::placeholder {
+    color: white;
+  }
+  .booking-box button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+    border-radius: 4px;
+  }
+  .booking-box button:hover {
+    background-color: #218838;
+  }
+  .amount-display {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #fff;
+    font-weight: bold;
+  }
+  #paymentOptions {
+    margin-top: 20px;
+    background: #fff;
+    color: #000;
+    border-radius: 6px;
+    padding: 15px;
+    display: none;
+    text-align: left;
+  }
+  #paymentOptions label {
+    display: block;
+    margin: 8px 0;
+    cursor: pointer;
+  }
+  #paymentOptions button {
+    margin-top: 15px;
+    background-color: #007bff;
+    color: white;
+    width: 100%;
+    font-weight: bold;
+  }
+  #paymentOptions button:hover {
+    background-color: #0056b3;
+  }
+  #successBox {
+    margin-top: 20px;
+    background-color: #28a745;
+    color: white;
+    padding: 15px;
+    border-radius: 6px;
+    display: none;
+    font-weight: bold;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 0 8px #1e7e34;
+  }
+  h2{
+    color:white;
+  }
+</style>
+</head>
+<body>
+  <div class="booking-box">
+    <h2>Book Your Concert Ticket</h2>
+    <input type="text" id="name" placeholder="Your Name"><br>
+    <input type="tel" id="contact" placeholder="Contact Number" maxlength="10" pattern="[0-9]{10}"><br>
+    <input type="number" id="tickets" min="1" placeholder="Number of Tickets"><br>
+    <div class="amount-display" id="amountDisplay">Amount: ₹0</div>
+    <button id="proceedPayBtn" disabled="">Proceed to Pay</button>
+    <div id="paymentOptions" style="display: none;">
+      <h3>Select Payment Method</h3>
+      <label><input type="radio" name="paymentMethod" value="Google Pay"> Google Pay</label>
+      <label><input type="radio" name="paymentMethod" value="PhonePe"> PhonePe</label>
+      <label><input type="radio" name="paymentMethod" value="PhonePe Wallet"> PhonePe Wallet</label>
+      <label><input type="radio" name="paymentMethod" value="Debit Card"> Debit Card</label>
+      <button id="payNowBtn">Proceed</button>
+    </div>
+  </div>
+  <div id="successBox" style="display: none;">
+  Payment Done Successfully!<br><br>
+  <a href="consert1.html" style="background:#fff;color:#000;padding:10px 20px;text-decoration:none;border-radius:4px;display:inline-block;">Go to Home Page</a>
+</div>
+<script>
+  const basePrice = 1500;
+  const ticketsInput = document.getElementById("tickets");
+  const nameInput = document.getElementById("name");
+  const contactInput = document.getElementById("contact");
+  const amountDisplay = document.getElementById("amountDisplay");
+  const proceedPayBtn = document.getElementById("proceedPayBtn");
+  const paymentOptions = document.getElementById("paymentOptions");
+  const payNowBtn = document.getElementById("payNowBtn");
+  const successBox = document.getElementById("successBox");
+  function isContactValid() {
+    const contact = contactInput.value.trim();
+    const contactRegex = /^\d{10}$/;
+    return contactRegex.test(contact);
+  }
+  function updateAmount() {
+    const tickets = parseInt(ticketsInput.value, 10);
+    if (tickets > 0) {
+      const total = tickets * basePrice;
+      amountDisplay.textContent = `Amount: ₹${total}`;
+    } else {
+      amountDisplay.textContent = `Amount: ₹0`;
+    }
+    paymentOptions.style.display = "none";
+    successBox.style.display = "none";
+  }
+  function validateProceedBtn() {
+    const tickets = parseInt(ticketsInput.value, 10);
+    const nameValid = nameInput.value.trim() !== "";
+    const contactValid = isContactValid();
+    proceedPayBtn.disabled = !(nameValid && contactValid && tickets > 0);
+  }
+  ticketsInput.addEventListener("input", () => {
+    updateAmount();
+    validateProceedBtn();
+  });
+  nameInput.addEventListener("input", validateProceedBtn);
+  contactInput.addEventListener("input", validateProceedBtn);
+  proceedPayBtn.addEventListener("click", () => {
+    paymentOptions.style.display = "block";
+    successBox.style.display = "none";
+  });
+  payNowBtn.addEventListener("click", () => {
+    const selectedPayment = document.querySelector('input[name="paymentMethod"]:checked');
+    if (!selectedPayment) {
+      alert("Please select a payment method.");
+      return;
+    }
+    paymentOptions.style.display = "none";
+    successBox.style.display = "block";
+    nameInput.value = "";
+    contactInput.value = "";
+    ticketsInput.value = "";
+    amountDisplay.textContent = "Amount: ₹0";
+    proceedPayBtn.disabled = true;
+    document.querySelectorAll('input[name="paymentMethod"]').forEach(input => input.checked = false);
+  });
+  proceedPayBtn.disabled = true; 
+</script>
+</body></html>

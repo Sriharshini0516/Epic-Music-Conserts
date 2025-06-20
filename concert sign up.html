@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Music Concert Sign Up</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-image: url('a1.avif');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .signup-container {
+      background: #2c2c3c;
+      padding: 30px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 0 10px rgba(180, 153, 153, 0.5);
+    }
+    .signup-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #ff4081;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="tel"],
+    input[type="password"],
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 8px;
+      background: #444;
+      color: #fff;
+    }
+    ::placeholder {
+      color: white;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      background-color: #c73163;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      border: none;
+    }
+    button:hover {
+      background-color: #be2155;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-container">
+    <h2>Sign Up</h2>
+    <form id="signupForm" method="POST">
+      <label for="fname">First Name</label>
+      <input type="text" placeholder="Enter first name" id="fname" name="fname" />
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" name="lname" placeholder="Enter last name" required />
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter email" required />
+      <label for="contact">Contact Number</label>
+      <input type="tel" id="contact" name="contact" required pattern="[0-9]{10}" placeholder="Enter contact number" />
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter password" />
+      <label for="confirm_password">Confirm Password</label>
+      <input type="password" id="confirm_password" name="confirm_password" required />
+      <a href="consert1.html">
+      <button type="submit">Sign Up</button>
+      </a>
+    </form>
+  </div>
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', function(event) {
+      event.preventDefault(); 
+      const email = document.getElementById('email').value.trim();
+      const contact = document.getElementById('contact').value.trim();
+      if (!email.includes('@') || !email.includes('.')) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+      const phoneRegex = /^\d{10}$/;
+      if (!phoneRegex.test(contact)) {
+        alert('Please enter a valid 10-digit contact number.');
+        return;
+      }
+      window.location.href = 'consert1.html';
+    });
+  </script>
+</body>
+</html>
+
